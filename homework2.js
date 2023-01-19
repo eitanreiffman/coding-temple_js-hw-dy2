@@ -30,19 +30,19 @@ class WizardUser{
         this.spells = []
     }
 
-    change_password(old_password, new_password){
+    changePassword(old_password, new_password){
         if (old_password === this.password){
             this.password = new_password;
             console.log(`${this.username}'s password has been changed to ${this.password}`)
         } else (console.log('Sorry, this password is incorrect. Please try again.'));
     };
 
-    learn_new_spell(spell_type){
+    learnNewSpell(spell_type){
         this.spells.push(spell_type)
         console.log(`Congrats! ${this.username} has just learned the ${spell_type} spell.`)
     }
 
-    get_sorted(new_house){
+    getSorted(new_house){
         this.house = new_house
         console.log(`${this.username} has been sorted into ${this.house}`)
     }
@@ -54,19 +54,19 @@ console.log(ronald);
 let harry = new WizardUser('harrypotter', 'gryffindorseeker');
 console.log(harry);
 
-ronald.change_password('gryffindorkeeper', 'chessmaster');
-harry.change_password('gryffinborseeker', 'thechosenone');
-harry.change_password('gryffindorseeker', 'thechosenone');
+ronald.changePassword('gryffindorkeeper', 'chessmaster');
+harry.changePassword('gryffinborseeker', 'thechosenone');
+harry.changePassword('gryffindorseeker', 'thechosenone');
 
-ronald.learn_new_spell('levitation');
-ronald.learn_new_spell('unlocking');
+ronald.learnNewSpell('levitation');
+ronald.learnNewSpell('unlocking');
 
-harry.learn_new_spell('disarming')
-harry.learn_new_spell('summoning')
-harry.learn_new_spell('patronus')
+harry.learnNewSpell('disarming');
+harry.learnNewSpell('summoning');
+harry.learnNewSpell('patronus');
 
-ronald.get_sorted('gryffindor')
-harry.get_sorted('gryffindor')
+ronald.getSorted('gryffindor');
+harry.getSorted('gryffindor');
 
 console.log(ronald);
 console.log(harry);
@@ -94,3 +94,18 @@ function squareNegatives(myArray){
 console.log(squareNegatives([-10, -3, 4, -2, 8, 9, -3]))
 console.log(squareNegatives([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]))
 console.log(squareNegatives([2, 4, 6, 8, 10]))
+
+// ====================================================
+
+
+function check_friend(friends){
+  friend_list = []
+  for(let friend of friends){
+    if(friend.length === 4){
+      friend_list.push(friend);
+    };
+  };
+  return friend_list;
+};
+
+console.log(check_friend(["Ryan", "Jimmy", "123", "4", "Cool Man"]))
