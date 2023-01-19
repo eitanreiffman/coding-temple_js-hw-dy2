@@ -23,7 +23,7 @@ console.log(toCelcius(50));
     Create an instance of the new user and then change their password using the method.
 */
 
-class User{
+class WizardUser{
     constructor(username, password){
         this.username = username;
         this.password = password;
@@ -33,7 +33,7 @@ class User{
     change_password(old_password, new_password){
         if (old_password === this.password){
             this.password = new_password;
-            console.log(`Your password has been changed to ${this.password}`)
+            console.log(`${this.username}'s password has been changed to ${this.password}`)
         } else (console.log('Sorry, this password is incorrect. Please try again.'));
     };
 
@@ -41,17 +41,35 @@ class User{
         this.spells.push(spell_type)
         console.log(`Congrats! ${this.username} has just learned the ${spell_type} spell.`)
     }
+
+    get_sorted(new_house){
+        this.house = new_house
+        console.log(`${this.username} has been sorted into ${this.house}`)
+    }
 };
 
-let ronald = new User('ronweasley', 'gryffindorkeeper');
+let ronald = new WizardUser('ronweasley', 'gryffindorkeeper');
 console.log(ronald);
+
+let harry = new WizardUser('harrypotter', 'gryffindorseeker');
+console.log(harry);
 
 ronald.change_password('gryffindorkeeper', 'chessmaster');
-console.log(ronald);
+harry.change_password('gryffinborseeker', 'thechosenone');
+harry.change_password('gryffindorseeker', 'thechosenone');
 
 ronald.learn_new_spell('levitation');
-ronald.learn_new_spell('invisibility');
+ronald.learn_new_spell('unlocking');
 
+harry.learn_new_spell('disarming')
+harry.learn_new_spell('summoning')
+harry.learn_new_spell('patronus')
+
+ronald.get_sorted('gryffindor')
+harry.get_sorted('gryffindor')
+
+console.log(ronald);
+console.log(harry);
 
 /*
     Exercise 3: Write a function that takes in an array of integers and returns
